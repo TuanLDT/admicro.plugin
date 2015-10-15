@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admicro.plugin</title>
+
+  <link href="assets/video-js.css" rel="stylesheet">
+
+  <!-- <link href="assets/videojs.ads.css" rel="stylesheet">
+  <link href="assets/videojs-preroll.css" rel="stylesheet"> -->
+  
+  <link href="dist/vcads.plugin.min.css" rel="stylesheet">
+  <link href="src/css/videojs.vast.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .info {
+      background-color: #eee;
+      border: thin solid #333;
+      border-radius: 3px;
+      padding: 0 5px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <p>
+      You can see the adSoha plugin in action below.
+      Look at the source of this page to see how to use it with your videos.
+    </p>
+  </div>
+  <video id="video"
+         class="video-js vjs-default-skin"
+         height="300"
+         width="600"
+         controls>
+    <p>
+      Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
+    </p>
+    <!-- <source src="http://222.255.27.218:8082/film.m3u8" type="application/x-mpegURL"> -->
+    <!-- <source src="http://adi.vcmedia.vn/adt/cpc/tvcads/files/others/flash/ExampleVpaid.swf?url=http://adi.vcmedia.vn/adt/cpc/tvcads/2015/03/super-114279658609577.swf&addonPath=http://adi.vcmedia.vn/adt/cpc/tvcads/2015/03/&addonClick=&duration=15&logging_click=http://lg.logging.admicro.vn/atvc?p=1062131;324702;6301;0;-1;9;15;5;vtv.vn&re=&cov=1&path=/video/the-thao-trua-26-3-2015-69604.htm?r" type="application/x-shockwave-flash"> -->
+    <!-- <source src="http://123.30.242.131/hls/test1.mp4" type="video/mp4">
+    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm"> -->
+  </video>
+
+  <script src="js/dev/jquery.js"></script>
+  <!-- sohatv js -->
+  <!-- dev -->
+  <script src="js/dev/video.dev.js"></script>
+
+  <!-- pro -->
+  <!-- <script src="js/pro/sohatv.min.js"></script> -->
+
+  <!--  plugin hls -->
+  <!-- dev -->
+   <script src="js/dev/sohatv-media-sources.js"></script>
+  <!-- pro -->
+   <script src="js/pro/sohatv.hls.min.js"></script>
+
+  <!-- plugin hls p2p -->
+  <script src="js/dev/Sohahls.js"></script>
+  <!-- dev -->
+  <!-- pro -->
+  <script src="js/pro/underscore-min.js"></script>
+
+  <!-- admicro plugin -->
+  <!-- dev -->
+  <script src="lib/videojs.ads.js"></script>
+  <script src="lib/videojs.markers.js"></script>
+  <script src="lib/vast-client.js"></script>
+  <script src="lib/videojs.vast.js"></script>
+  <script src="lib/vpaid.js"></script>
+  
+  <script src="src/js/adSoha.js"></script>
+  <script src="js/dev/admicro.plugin.js"></script>
+  <!-- pro -->
+  <!--<script src="dist/vcads.plugin.js"></script>-->
+
+  <script>
+    // fire up the plugin
+    //videojs('video').adSoha();
+    
+    videojs.options.flash.swf = 'assets/SohaPlayer.swf';
+    var src = [
+      {src: 'https://hls.vcmedia.vn/autopro/iiplovyylubdxdoxuxb2ffkkmt8ccc/2015/06/09/ford-excursion-phien-ban-monster-truck-1433785372116-d1c0c_360p.mp4', type: 'video/mp4'}
+    ];
+    videojs.options.vpaidswf = 'assets/video-js-vpaid.swf';
+    // initialize the player
+    videojs('video', {debug: true, autoplay: false}, function () {
+        var player = this;
+        player.src(src);
+       /*player.stats({display:true});*/
+        var timeMarker = 0;
+        var data;
+        //player.ads({src:"http://123.30.242.123:3000/test1/adsHD.mp4"});
+        //player.exampleAds();
+        setTimeout(function(){
+          data = player.admicro();
+        }, 0);
+
+        var adSohaTimeout = setTimeout(function(){
+          clearInterval(adSohaCheckData);
+        }, 500);
+
+        var adSohaCheckData = setInterval(function(){ fillData() }, 100);
+
+        function fillData() {
+          if (data && typeof player.adSoha == 'function') {
+            clearInterval(adSohaCheckData);
+            player.adSoha(data);
+          }
+        }
+    }); 
+  </script>
+</body>
+</html>

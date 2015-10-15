@@ -1,0 +1,15 @@
+{
+    "browser"  : true,
+    "curly": true,
+    "eqeqeq": true,
+    "quotmark" : "single",
+    "trailing" : true,
+    "undef"    : true,
+	"smarttabs": true,
+    "predef"   : [
+        "videojs",
+		"sohatv",
+		"define",
+		"require"
+    ]
+}
