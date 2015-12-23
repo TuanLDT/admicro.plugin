@@ -1,0 +1,101 @@
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="354373">
+        <InLine>
+            <AdSystem version="2.0">AdMicro</AdSystem>
+            <AdTitle>In-Stream Video</AdTitle>
+            <Impression id="AdMicro">
+                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;0;{tagid};{hostname}&cov=0&path={urlpath}]]>
+            </Impression>
+            <Impression id="ThirdParty">
+                <![CDATA[http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=14872484&PluID=0&ord={timestamp}&rtu=-1]]>
+            </Impression>
+            <Creatives>
+                <Creative sequence="1" AdID="">
+                    <Linear>
+                        <Duration>00:00:15</Duration>
+                        <AdParameters/>
+                        <TrackingEvents>
+                            <Tracking event="midpoint">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;3;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="firstQuartile">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;4;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="thirdQuartile">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;5;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="complete">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;6;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="mute">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;7;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="unmute">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;8;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="pause">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;9;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="rewind">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;10;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="resume">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;11;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="fullscreen">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;12;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="collapse">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;14;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="close">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;16;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking event="complete">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;127;{tagid};{hostname}&cov=0&path={urlpath}]]>
+                            </Tracking>
+                            <Tracking id="ThirdParty" event="start">
+                                <![CDATA[http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=15213127&PluID=0&ord={timestamp}&rtu=-1]]>
+                            </Tracking>
+                            <Tracking id="ThirdParty" event="complete">
+                                <![CDATA[http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=19&mc=imp&pli=15213760&PluID=0&ord={timestamp}&rtu=-1]]>
+                            </Tracking>
+                        </TrackingEvents>
+                        <VideoClicks>
+                            <ClickThrough>
+                                <![CDATA[http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=14872484&PluID=0&ord={timestamp}]]>
+                            </ClickThrough>
+                            <ClickTracking id="AdMicro">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;15;{tagid};{hostname}&re=&cov=1&path={urlpath}]]>
+                            </ClickTracking>
+                        </VideoClicks>
+                        <MediaFiles>
+                            <MediaFile id="1" delivery="progressive" type="video/x-mp4" bitrate="800" width="640" height="360" maintainAspectRatio="true" scalable="true">
+                                <![CDATA[http://adv.vcmedia.vn/adt/cpc/tvcads/2015/11/cocacola_ngang_640x360_1447132495_144722-1144738368688.mp4]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+            <Extensions>
+                <Extension type="AdMicro">
+                    <AdServingData>
+                        <DeliveryData>
+                            <Thumbnail></Thumbnail>
+                            <TitleBar>
+                                <![CDATA[]]>
+                            </TitleBar>
+                            <CustomClickThrough>
+                                <![CDATA[http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=14872484&PluID=0&ord={timestamp}]]>
+                            </CustomClickThrough>
+                            <CustomTracking>
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1069887;354373;{zoneid};0;-1;9;15;{tagid};{hostname}&re=&cov=1&path={urlpath}]]>
+                            </CustomTracking>
+                            <Frequency></Frequency>
+                        </DeliveryData>
+                    </AdServingData>
+                </Extension>
+            </Extensions>
+        </InLine>
+    </Ad>
+</VAST>
