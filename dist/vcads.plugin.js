@@ -2519,6 +2519,11 @@ var
             };
 
         player.on('canplay', canplayFn);
+        //event vast
+        if (player.vast.type != 'VPAID') {
+          player.one('ended', completeFn);
+        }
+       
         //event vpaid
         player.on('vastcreativeview', canplayFn);
         player.on('vastfirstquartile', firstquartileFn);
@@ -2537,6 +2542,12 @@ var
         player.one('vast-preroll-removed', function() {
           player.off('canplay', canplayFn);
           player.off('timeupdate', timeupdateFn);
+          // event vast
+          
+          if (player.vast.type != 'VPAID') {
+            player.off('ended', completeFn);
+          }
+
           // event vpaid
           player.off('vastcreativeview', canplayFn);
           player.off('vastfirstquartile', firstquartileFn);

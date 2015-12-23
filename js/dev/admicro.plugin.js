@@ -60,8 +60,9 @@
                  }
               ],
       vast = {
+        url: 'assets/proxy.xml'
         //url: 'assets/tidaltv.xml'
-        url: 'assets/tidaltv_skip_error.xml'
+        //url: 'assets/tidaltv_skip_error.xml'
        //url: 'assets/tidaltv_skip.xml'
         //url: 'assets/vast12.xml'
         //url: 'assets/vpaid.xml',
