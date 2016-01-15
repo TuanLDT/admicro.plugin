@@ -1,5 +1,5 @@
-/*! vcads.plugin - v1.0.0 - 2015-12-23
-* Copyright (c) 2015 Le Dac Thanh Tuan; Licensed Apache-2.0 */
+/*! vcads.plugin - v1.0.0 - 2016-01-15
+* Copyright (c) 2016 Le Dac Thanh Tuan; Licensed Apache-2.0 */
 /*! sohatv-adSoha - v0.2.0 - 2014-12-08
 * Copyright (c) 2014 Le Dac Thanh Tuan;
 * Copyright (c) 2014 The Onion
@@ -333,7 +333,9 @@ var
       player.one('loadedmetadata', restoreTracks);
 
       // if the src changed for ad playback, reset it
-      player.src({ src: snapshot.src, type: snapshot.type });
+      setTimeout(function() {
+        player.src({ src: snapshot.src, type: snapshot.type });
+      }, 10);
       // safari requires a call to `load` to pick up a changed source
       player.load();
       // and then resume from the snapshots time once the original src has loaded
@@ -2593,6 +2595,14 @@ var
         if (apiFramework == 'VPAID') {  
           player.vast.type = 'VPAID';
           player.one(['play', 'playing'], function() {
+
+            if (player.vast.sources && player.vast.sources[0].src !== player.src()) {
+              player.vast.adDone = true;
+              player.ads.endLinearAdMode();
+              player.trigger('vast-preroll-removed');
+              return;
+            }
+            
             if (player.ads && player.ads.state == 'ad-playback') {
               player.controlBar.hide();
             }
@@ -2816,7 +2826,7 @@ var
 	  this.src_ = src;
 	  // TuanLDT add -E
 
-	  this.player().ready(function() {
+	  this.ready(function() {
 	    // do nothing if the tech has been disposed already
 	    // this can occur if someone sets the src in player.ready(), for instance
 	    var tech = this;
@@ -2838,15 +2848,15 @@ var
 	      }, this);
 
 	      if (sourceObject) {
-	        tech.el().firstChild.vjs_setProperty('adParameters', sourceObject.adParameters);
+	        tech.el().vjs_setProperty('adParameters', sourceObject.adParameters);
 	        //console.log('adParameters %s', sourceObject.adParameters);
-	        tech.el().firstChild.vjs_setProperty('duration', sourceObject.duration);
+	        tech.el().vjs_setProperty('duration', sourceObject.duration);
 	        //console.log('duration %s', sourceObject.duration);
-	        tech.el().firstChild.vjs_setProperty('bitrate', sourceObject.bitrate);
+	        tech.el().vjs_setProperty('bitrate', sourceObject.bitrate);
 	        //console.log('bitrate %s', sourceObject.bitrate);
-	        tech.el().firstChild.vjs_setProperty('width', sourceObject.width);
+	        tech.el().vjs_setProperty('width', sourceObject.width);
 	        //console.log('width %s', sourceObject.width);
-	        tech.el().firstChild.vjs_setProperty('height', sourceObject.height);
+	        tech.el().vjs_setProperty('height', sourceObject.height);
 	        //console.log('height %s', sourceObject.height);
 
 	        //this.player_.duration(sourceObject.duration);
@@ -2856,7 +2866,7 @@ var
 
 	    // Make sure source URL is absolute.
 	    src = vjs.getAbsoluteURL(src);
-	    tech.el().firstChild.vjs_src(src);
+	    tech.el().vjs_src(src);
 
 	    // Currently the SWF doesn't autoplay if you load a source later.
 	    // e.g. Load player w/ no source, wait 2s, set src.
