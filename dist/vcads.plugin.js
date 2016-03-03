@@ -2453,18 +2453,18 @@ var
       setupEvents: function() {
 
         var errorOccurred = false,
-            firtTime = false,
+            isFirstTime = false,
             canplayFn = function() {
               player.vastTracker.load();
             },
             timeupdateFn = function() {
-              if (player.currentTime() > 0 && !firtTime) {
-                firtTime = true;
-                player.vastTracker.load();
-              }
-
               if (isNaN(player.vastTracker.assetDuration)) {
                 player.vastTracker.assetDuration = player.duration();
+              }
+
+              if (player.currentTime() > 0 && !isFirstTime) {
+                isFirstTime = true;
+                player.vastTracker.load();
               }
               player.vastTracker.setProgress(player.currentTime(), player.duration());
             },
@@ -2520,6 +2520,9 @@ var
               });
             },
             completeFn = function(evt) {
+                if (errorOccurred) {
+                  return;
+                }
                player.vastTracker.complete();
             },
             closeFn = function(evt) {
@@ -2533,7 +2536,7 @@ var
         }
        
         //event vpaid
-        //player.on('vastcreativeview', canplayFn);
+        player.on('vastimpression', canplayFn);
         player.on('vastfirstquartile', firstquartileFn);
         player.on('vastmidpoint', midpointFn);
         player.on('vastthirdquartile', thirdquartileFn);
@@ -2557,7 +2560,7 @@ var
           }
 
           // event vpaid
-          //player.off('vastcreativeview', canplayFn);
+          player.off('vastimpression', canplayFn);
           player.off('vastfirstquartile', firstquartileFn);
           player.off('vastmidpoint', midpointFn);
           player.off('vastthirdquartile', thirdquartileFn);
