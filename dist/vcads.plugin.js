@@ -1,4 +1,4 @@
-/*! vcads.plugin - v1.0.0 - 2016-01-15
+/*! vcads.plugin - v1.0.0 - 2016-03-03
 * Copyright (c) 2016 Le Dac Thanh Tuan; Licensed Apache-2.0 */
 /*! sohatv-adSoha - v0.2.0 - 2014-12-08
 * Copyright (c) 2014 Le Dac Thanh Tuan;
@@ -2453,10 +2453,16 @@ var
       setupEvents: function() {
 
         var errorOccurred = false,
+            firtTime = false,
             canplayFn = function() {
               player.vastTracker.load();
             },
             timeupdateFn = function() {
+              if (player.currentTime() > 0 && !firtTime) {
+                firtTime = true;
+                player.vastTracker.load();
+              }
+
               if (isNaN(player.vastTracker.assetDuration)) {
                 player.vastTracker.assetDuration = player.duration();
               }
@@ -2520,14 +2526,14 @@ var
               player.vastTracker.stop();
             };
 
-        player.on('canplay', canplayFn);
+        //player.one(['play', 'playing'], canplayFn);
         //event vast
         if (player.vast.type != 'VPAID') {
           player.one('ended', completeFn);
         }
        
         //event vpaid
-        player.on('vastcreativeview', canplayFn);
+        //player.on('vastcreativeview', canplayFn);
         player.on('vastfirstquartile', firstquartileFn);
         player.on('vastmidpoint', midpointFn);
         player.on('vastthirdquartile', thirdquartileFn);
@@ -2542,7 +2548,7 @@ var
         
 
         player.one('vast-preroll-removed', function() {
-          player.off('canplay', canplayFn);
+          //player.off('canplay', canplayFn);
           player.off('timeupdate', timeupdateFn);
           // event vast
           
@@ -2551,7 +2557,7 @@ var
           }
 
           // event vpaid
-          player.off('vastcreativeview', canplayFn);
+          //player.off('vastcreativeview', canplayFn);
           player.off('vastfirstquartile', firstquartileFn);
           player.off('vastmidpoint', midpointFn);
           player.off('vastthirdquartile', thirdquartileFn);
@@ -2559,6 +2565,7 @@ var
           player.off('vasthanshakeversion', hanshakeversionFn);
           player.off('vastcomplete',completeFn);
           player.off('vastclose',closeFn);
+          //player.off(['play', 'playing'], canplayFn);
 
           player.off('pause', pauseFn);
           player.off('error', errorFn);
