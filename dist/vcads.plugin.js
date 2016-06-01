@@ -1,4 +1,4 @@
-/*! vcads.plugin - v1.0.0 - 2016-03-03
+/*! vcads.plugin - v1.0.0 - 2016-06-01
 * Copyright (c) 2016 Le Dac Thanh Tuan; Licensed Apache-2.0 */
 /*! sohatv-adSoha - v0.2.0 - 2014-12-08
 * Copyright (c) 2014 Le Dac Thanh Tuan;
@@ -1387,10 +1387,14 @@ var
                                             complete();
                                             return;
                                         }
-                                        if (ad.nextWrapperURL.indexOf('://') === -1) {
+
+                                        if (ad.nextWrapperURL.indexOf('://') === -1 && ad.nextWrapperURL.indexOf('//') !== -1) {
+                                            ad.nextWrapperURL = ad.nextWrapperURL.replace(/\s*\/\//g, window.document.location.protocol + "\/\/");
+                                        } else if (ad.nextWrapperURL.indexOf('://') === -1) {
                                             baseURL = url.slice(0, url.lastIndexOf('/'));
                                             ad.nextWrapperURL = "" + baseURL + "/" + ad.nextWrapperURL;
                                         }
+
                                         return _this._parse(ad.nextWrapperURL, parentURLs, function(err, wrappedResponse) {
                                             var creative, eventName, clickHandle, index, wrappedAd, _base = {}, _l, _len3, _len4, _len5, _m, _n, _ref3, _ref4, _ref5;
                                             if (err != null) {
@@ -2461,11 +2465,6 @@ var
               if (isNaN(player.vastTracker.assetDuration)) {
                 player.vastTracker.assetDuration = player.duration();
               }
-
-              if (player.currentTime() > 0 && !isFirstTime) {
-                isFirstTime = true;
-                player.vastTracker.load();
-              }
               player.vastTracker.setProgress(player.currentTime(), player.duration());
             },
             pauseFn = function() {
@@ -2532,10 +2531,13 @@ var
         //player.one(['play', 'playing'], canplayFn);
         //event vast
         if (player.vast.type != 'VPAID') {
+          player.one(['play', 'playing'], canplayFn);
+          player.on('timeupdate', timeupdateFn);
           player.one('ended', completeFn);
-        }
-       
+        } 
+
         //event vpaid
+        player.on('vaststart', canplayFn);
         player.on('vastimpression', canplayFn);
         player.on('vastfirstquartile', firstquartileFn);
         player.on('vastmidpoint', midpointFn);
@@ -2544,37 +2546,32 @@ var
         player.on('vasthanshakeversion', hanshakeversionFn);
         player.on('vastcomplete',completeFn);
         player.on('vastclose',closeFn);
-
-        player.on('timeupdate', timeupdateFn);
+        
+    
         player.on('pause', pauseFn);
         player.on('error', errorFn);
         
 
         player.one('vast-preroll-removed', function() {
-          //player.off('canplay', canplayFn);
-          player.off('timeupdate', timeupdateFn);
           // event vast
           
-          if (player.vast.type != 'VPAID') {
             player.off('ended', completeFn);
-          }
+            player.off(['play', 'playing'], canplayFn);
+            player.off('timeupdate', timeupdateFn);
+          
+            // event vpaid
+            player.off('vaststart', canplayFn);
+            player.off('vastimpression', canplayFn);
+            player.off('vastfirstquartile', firstquartileFn);
+            player.off('vastmidpoint', midpointFn);
+            player.off('vastthirdquartile', thirdquartileFn);
+            player.off('vastclicktracking', clicktrackingFn);
+            player.off('vasthanshakeversion', hanshakeversionFn);
+            player.off('vastcomplete',completeFn);
+            player.off('vastclose',closeFn);
 
-          // event vpaid
-          player.off('vastimpression', canplayFn);
-          player.off('vastfirstquartile', firstquartileFn);
-          player.off('vastmidpoint', midpointFn);
-          player.off('vastthirdquartile', thirdquartileFn);
-          player.off('vastclicktracking', clicktrackingFn);
-          player.off('vasthanshakeversion', hanshakeversionFn);
-          player.off('vastcomplete',completeFn);
-          player.off('vastclose',closeFn);
-          //player.off(['play', 'playing'], canplayFn);
-
-          player.off('pause', pauseFn);
-          player.off('error', errorFn);
-          /*if (!errorOccurred) {
-            player.vastTracker.complete();
-          }*/
+            player.off('pause', pauseFn);
+            player.off('error', errorFn);
         });
       },
 
@@ -2751,6 +2748,9 @@ var
       },
       vast_contentupdate = function() {
         // videojs-ads triggers this when src changes
+        if (player.vast.adDone === true) {
+          return;
+        }
         player.vast.getContent();
       },
       vast_readyforpreroll = function() {
