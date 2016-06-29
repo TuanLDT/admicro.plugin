@@ -1,4 +1,4 @@
-/*! vcads.plugin - v1.0.0 - 2016-06-01
+/*! vcads.plugin - v1.0.0 - 2016-06-29
 * Copyright (c) 2016 Le Dac Thanh Tuan; Licensed Apache-2.0 */
 /*! sohatv-adSoha - v0.2.0 - 2014-12-08
 * Copyright (c) 2014 Le Dac Thanh Tuan;
@@ -2347,12 +2347,25 @@ var
 
       createSourceObjects: function (creative) {
         var sourcesByFormat = {}, i, j, tech;
-        var techOrder = player.options().techOrder;
+        var defaultsTech = ['html5', 'flash', 'vpaidflash'];
+
+        var techOrderPlayer = player.options().techOrder;
+
         var media_files = creative.mediaFiles;
         var adParameters;
 
+
+
         if (creative.adParameters && creative.adParameters[0]) {
           adParameters = creative.adParameters[0];
+        }
+
+        var techOrder = [];
+
+        for (i = 0; i< defaultsTech.length; i++) {
+          if (techOrderPlayer.indexOf(defaultsTech[i]) !== -1) {
+            techOrder.push(defaultsTech[i]);
+          }
         }
 
         for (i = 0, j = techOrder.length; i < j; i++) {

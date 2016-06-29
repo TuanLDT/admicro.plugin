@@ -1,0 +1,93 @@
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="369873">
+        <InLine>
+            <AdSystem version="2.0">AdMicro</AdSystem>
+            <AdTitle>In-Stream Video</AdTitle>
+            <Impression id="AdMicro">
+                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;0;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+            </Impression>
+            <Creatives>
+                <Creative sequence="1" AdID="">
+                    <Linear>
+                        <Duration>00:00:16.217</Duration>
+                        <AdParameters/>
+                        <TrackingEvents>
+                            <Tracking event="creativeView">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;1;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="start">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;2;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="midpoint">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;3;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="firstQuartile">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;4;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="thirdQuartile">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;5;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="complete">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;6;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="mute">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;7;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="unmute">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;8;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="pause">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;9;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="rewind">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;10;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="resume">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;11;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="fullscreen">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;12;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="collapse">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;14;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                            <Tracking event="close">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;16;0;dantri.com.vn&cov=0&path=/video-page.htm?r]]>
+                            </Tracking>
+                        </TrackingEvents>
+                        <VideoClicks>
+                            <ClickThrough>
+                                <![CDATA[http://adnetwork.admicro.vn/demo.html#tvc?utm_source=Admicro&utm_medium=TVC&utm_campaign=TanHoangMinh24052016]]>
+                            </ClickThrough>
+                            <ClickTracking id="AdMicro">
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;15;0;dantri.com.vn&re=&cov=1&path=/video-page.htm?r]]>
+                            </ClickTracking>
+                        </VideoClicks>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" width="300" height="250" type="application/x-shockwave-flash" apiFramework="VPAID"><![CDATA[http://adi.vcmedia.vn/adt/cpc/tvcads/files/flash/0516/ExampleVpaid.swf?duration=15&url=http://adi.vcmedia.vn/adt/cpc/tvcads/files/flash/0616/SuperPrerollExpandWarcraft.swf&addonPath=//adi.vcmedia.vn/adt/cpc/tvcads/2016/03/&addonClick=&logging_click=http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;15;0;dantri.com.vn&re=&cov=1&path=/video-page.htm?r]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+            <Extensions>
+                <Extension type="AdMicro">
+                    <AdServingData>
+                        <DeliveryData>
+                            <Thumbnail>
+                                <![CDATA[//adi.vcmedia.vn/adt/cpc/tvcads/2016/03/]]>
+                            </Thumbnail>
+                            <TitleBar></TitleBar>
+                            <CustomClickThrough>
+                                <![CDATA[http://adnetwork.admicro.vn/demo.html#tvc?utm_source=Admicro&utm_medium=TVC&utm_campaign=TanHoangMinh24052016]]>
+                            </CustomClickThrough>
+                            <CustomTracking>
+                                <![CDATA[http://lg.logging.admicro.vn/atvc?p=1022774;369873;2657;0;-1;9;15;0;dantri.com.vn&re=&cov=1&path=/video-page.htm?r]]>
+                            </CustomTracking>
+                        </DeliveryData>
+                    </AdServingData>
+                </Extension>
+            </Extensions>
+        </InLine>
+    </Ad>
+</VAST>
