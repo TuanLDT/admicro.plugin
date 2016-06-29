@@ -64,6 +64,7 @@
         //url: 'http://adi.vcmedia.vn/adt/cpc/tvcads/files/xml/0616/WarcraftVPAID.xml'
         //url: 'http://adi.vcmedia.vn/adt/cpc/tvcads/files/xml/0116/363436_vast_1452850116.xml'
         url: 'assets/multi_source.xml'
+        //url: 'assets/vast.xml'
         //url: 'assets/tidaltv.xml'
         //url: 'assets/tidaltv_skip_error.xml'
        //url: 'assets/tidaltv_skip.xml'

@@ -2587,7 +2587,17 @@ var
             player.off('error', errorFn);
         });
       },
+      vastFramework: function() {
+        var type = player.currentType();
 
+        var vastreg = /mp4/i;
+
+        if (vastreg.test(type)) {
+          return 'VAST';
+        };
+
+        return null;
+      },
       preroll: function() {
         player.ads.startLinearAdMode();
         player.vast.showControls = player.controls();
@@ -2611,7 +2621,8 @@ var
             }
           )[0];
         }
-        var apiFramework = player.vastTracker.creative.mediaFiles[0].apiFramework;
+
+        var apiFramework = player.vast.vastFramework() || player.vastTracker.creative.mediaFiles[0].apiFramework;
         if (apiFramework == 'VPAID') {  
           player.vast.type = 'VPAID';
           player.one(['play', 'playing'], function() {
