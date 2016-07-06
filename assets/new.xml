@@ -1,0 +1,33 @@
+<VAST version="2.0">
+<Ad>
+<Wrapper>
+<AdSystem>
+<![CDATA[ Adexchange VAST ]]>
+</AdSystem>
+<VASTAdTagURI>
+<![CDATA[
+http://insight.adsrvr.org/enduser/vast/?iid=963a05ab-80c9-4ca3-b3dd-c6af6ada87d2&crid=u598pw5x&wp=2.434000&aid=1&wpc=USD&sfe=9b3ee5f&puid=&tdid=&pid=2uh6pip&ag=emhcm7e&cf=&fq=0&td_s=admicro.vn&rcats=y29,2ic&mcat=&mste=&mfld=2&mssi=&mfsi=w6dygyrobu&uhow=81&agsa=&rgco=Vietnam&rgre=Ha%20Noi&rgme=&rgci=Hanoi&rgz=&svbttd=1&dt=PC&osf=Windows&os=Windows10&br=Chrome&rlangs=vi&mlang=&svpid=1458792382&did=gax-n8hgekfo29s&rcxt=Other&lat=21.033295&lon=105.850006&tmpc=&daid=&vp=0&osi=&osv=&bv=1&bp=6&svscid=1467255185&dvps=Large&dur=CjAKDGNoYXJnZS1hbGwtMSIgCP///////////wESE3R0ZF9kYXRhX2V4Y2x1c2lvbnM=&crrelr=&dc=6&vcc=CAMQHhgeMgQIAggBOgQIAQgCQAFIAVAEiAECoAGABagB6ALQAQM=&sv=ambient&pidi=1702&advi=84771&cmpi=361215&agi=1134602&cridi=2307562&svi=40&adv=iyqq5x5&cmp=9oi58s6
+]]>
+</VASTAdTagURI>
+<Impression>
+<![CDATA[
+http://imp.gammaplatform.com/adx/adServer?act=impression&uid=tzw6l8ma2cjk&wid=1467255185&zid=1467368222&bid=u598pw5x&did=5&bp=AAAAAFd8bl9kZmFmNTZjZdI9qAO_aK0Ypp41KA&wp=AAAAAFd8bl9mMTFjYTMxNMeS_9xeag6fJhAaHQ&pr=AAAAAFd8bl8zYTdiMTZhNKeCwhcwj9KqyNHeCw&ar=AAAAAFd8bl8wNTcxNzliNT8ciNAIJD9PL2kToA&brid=1607061001956875&dlid=gax-n8hgekfo29s&cb=1467772511
+]]>
+</Impression>
+<Creatives>
+<Creative AdID="u598pw5x" sequence="1">
+<Linear>
+<TrackingEvents/>
+<VideoClicks>
+<ClickTracking>
+<![CDATA[
+http://clk.gammaplatform.com/adx/adServer?act=click&uid=tzw6l8ma2cjk&wid=1467255185&zid=1467368222&bid=u598pw5x&did=5&cb=1467772511&durl=
+]]>
+</ClickTracking>
+</VideoClicks>
+</Linear>
+</Creative>
+</Creatives>
+</Wrapper>
+</Ad>
+</VAST>

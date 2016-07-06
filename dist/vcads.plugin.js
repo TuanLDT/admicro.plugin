@@ -1,4 +1,4 @@
-/*! vcads.plugin - v1.0.0 - 2016-06-29
+/*! vcads.plugin - v1.0.0 - 2016-07-06
 * Copyright (c) 2016 Le Dac Thanh Tuan; Licensed Apache-2.0 */
 /*! sohatv-adSoha - v0.2.0 - 2014-12-08
 * Copyright (c) 2014 Le Dac Thanh Tuan;
@@ -1025,6 +1025,7 @@ var
                         this.errorURLTemplates = [];
                         this.impressionURLTemplates = [];
                         this.creatives = [];
+                        this.adSystem = [];
                     }
 
                     return VASTAd;
@@ -1531,6 +1532,9 @@ var
                             switch (node.nodeName) {
                                 case "Error":
                                     ad.errorURLTemplates.push(this.parseNodeText(node));
+                                    break;
+                                case "AdSystem": 
+                                    ad.adSystem.push(this.parseNodeText(node));
                                     break;
                                 case "Impression":
                                     ad.impressionURLTemplates.push(this.parseNodeText(node));
@@ -2612,7 +2616,7 @@ var
         player.src(player.vast.sources);
 
         var clickthrough;
-        if (player.vastTracker.videoClicks.clickThrough) {
+        if (player.vastTracker.videoClicks.clickThrough && player.vastTracker.videoClicks.clickThrough[0]) {
           clickthrough = vast.util.resolveURLTemplates(
             player.vastTracker.videoClicks.clickThrough,
             {
